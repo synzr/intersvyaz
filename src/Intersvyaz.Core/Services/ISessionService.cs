@@ -17,17 +17,20 @@ namespace Intersvyaz.Core.Services
         /// <summary>
         /// Получить сессию пользователя.
         /// </summary>
+        /// <param name="username">Имя пользователя.</param>
         /// <returns>Данные об сессии.</returns>
-        SessionData GetSession();
+        SessionData GetSession(string username);
 
         /// <summary>
         /// Проверить, есть ли сессия пользователя.
         /// </summary>
-        bool HasSession();
+        /// <param name="username">Имя пользователя.</param>
+        bool HasSession(string username);
 
         /// <summary>
         /// Удалить сессию пользователя.
         /// </summary>
-        void DeleteSession();
+        /// <param name="username">Имя пользователя.</param>
+        void DeleteSession(string username);
     }
 }

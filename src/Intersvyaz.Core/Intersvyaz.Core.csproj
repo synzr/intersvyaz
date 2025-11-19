@@ -123,6 +123,7 @@
     <Compile Include="Models\SessionData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ISessionService.cs" />
+    <Compile Include="Services\SessionService.cs" />
     <EmbeddedResource Include="Properties\Intersvyaz.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -130,7 +131,12 @@
       <Version>6.2.8</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Intersvyaz.Net\Intersvyaz.Net.csproj">
+      <Project>{d53e9b31-82ca-4b3b-a6ba-9f4b9353abb1}</Project>
+      <Name>Intersvyaz.Net</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
