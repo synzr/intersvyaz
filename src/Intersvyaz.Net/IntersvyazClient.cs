@@ -32,9 +32,10 @@ namespace Intersvyaz.Net
                 BaseAddress = API_URI,
             };
 
-            // TODO: Добавить здесь ссылку на репозитории.
             _httpClient.DefaultRequestHeaders.UserAgent.Add(
                 new ProductInfoHeaderValue("Intersvyaz.Net", "1.0"));
+            _httpClient.DefaultRequestHeaders.UserAgent.Add(
+                new ProductInfoHeaderValue("(+https://github.com/synzr/intersvyaz)"));
         }
 
         public IntersvyazClient(string token) : base()
