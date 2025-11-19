@@ -10,28 +10,45 @@ namespace Intersvyaz.Net
 {
     public class IntersvyazClient
     {
-        private readonly Uri BASE_ADDRESS = new Uri("https://api.is74.ru");
+        /// <summary>
+        /// URL-адрес API.
+        /// </summary>
+        private readonly Uri API_URI = new Uri("https://api.is74.ru");
+        
+        /// <summary>
+        /// Клиент HTTP.
+        /// </summary>
+        private HttpClient _httpClient;
 
-        private HttpClient httpClient;
+        /// <summary>
+        /// Событие при успешном входе в систему.
+        /// </summary>
+        public event EventHandler<LoginResponseDto> OnLogin;
 
         public IntersvyazClient()
         {
-            httpClient = new HttpClient()
+            _httpClient = new HttpClient()
             {
-                BaseAddress = BASE_ADDRESS,
+                BaseAddress = API_URI,
             };
 
             // TODO: Добавить здесь ссылку на репозитории.
-            httpClient.DefaultRequestHeaders.UserAgent.Add(
+            _httpClient.DefaultRequestHeaders.UserAgent.Add(
                 new ProductInfoHeaderValue("Intersvyaz.Net", "1.0"));
         }
 
         public IntersvyazClient(string token) : base()
         {
-            httpClient.DefaultRequestHeaders.Authorization
+            _httpClient.DefaultRequestHeaders.Authorization
                 = new AuthenticationHeaderValue("Bearer", token);
         }
 
+        /// <summary>
+        /// Вход в систему.
+        /// </summary>
+        /// <param name="username">Имя пользователя.</param>
+        /// <param name="password">Пароль пользователя.</param>
+        /// <returns>Ответ от системы.</returns>
         public async Task<LoginResponseDto> Login(string username, string password)
         {
             var content = new JsonContent(new LoginRequestDto()
@@ -40,7 +57,7 @@ namespace Intersvyaz.Net
                 Password = password,
             });
 
-            using (var message = await httpClient.PostAsync("/auth/mobile", content))
+            using (var message = await _httpClient.PostAsync("/auth/mobile", content))
             {
                 var data = await message.Content.ReadAsStringAsync();
 
@@ -57,8 +74,9 @@ namespace Intersvyaz.Net
 
                 var result = JsonConvert.DeserializeObject<LoginResponseDto>(data);
 
-                httpClient.DefaultRequestHeaders.Authorization =
+                _httpClient.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", result.Token);
+                OnLogin.Invoke(this, result);
 
                 return result;
             }
