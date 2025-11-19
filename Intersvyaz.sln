@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.33801.198
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intersvyaz", "src\Intersvyaz\Intersvyaz.csproj", "{06793BA6-51AC-4451-9686-683F64F6B257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intersvyaz.Net", "src\Intersvyaz.Net\Intersvyaz.Net.csproj", "{D53E9B31-82CA-4B3B-A6BA-9F4B9353ABB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Intersvyaz.Net", "src\Intersvyaz.Net\Intersvyaz.Net.csproj", "{D53E9B31-82CA-4B3B-A6BA-9F4B9353ABB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intersvyaz.Core", "src\Intersvyaz.Core\Intersvyaz.Core.csproj", "{FBE4CED9-3007-44B4-AABB-E49916DA09C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,26 @@ Global
 		{D53E9B31-82CA-4B3B-A6BA-9F4B9353ABB1}.Release|x64.Build.0 = Release|Any CPU
 		{D53E9B31-82CA-4B3B-A6BA-9F4B9353ABB1}.Release|x86.ActiveCfg = Release|Any CPU
 		{D53E9B31-82CA-4B3B-A6BA-9F4B9353ABB1}.Release|x86.Build.0 = Release|Any CPU
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|ARM.Build.0 = Debug|ARM
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|ARM64.Build.0 = Debug|ARM64
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|x64.ActiveCfg = Debug|x64
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|x64.Build.0 = Debug|x64
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|x86.ActiveCfg = Debug|x86
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Debug|x86.Build.0 = Debug|x86
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|ARM.ActiveCfg = Release|ARM
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|ARM.Build.0 = Release|ARM
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|ARM64.ActiveCfg = Release|ARM64
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|ARM64.Build.0 = Release|ARM64
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|x64.ActiveCfg = Release|x64
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|x64.Build.0 = Release|x64
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|x86.ActiveCfg = Release|x86
+		{FBE4CED9-3007-44B4-AABB-E49916DA09C1}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
