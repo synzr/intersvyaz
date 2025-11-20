@@ -14,7 +14,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Intersvyaz.Pages;
+using SimpleInjector;
+using Intersvyaz.Views;
+using Intersvyaz.Net;
+using Intersvyaz.Core.Services;
 
 namespace Intersvyaz
 {
@@ -24,13 +27,24 @@ namespace Intersvyaz
     sealed partial class App : Application
     {
         /// <summary>
+        /// Текущее приложение.
+        /// </summary>
+        public static new App Current = (App)Application.Current;
+
+        /// <summary>
+        /// Провайдер сервисов.
+        /// </summary>
+        public Container Services { get; }
+
+        /// <summary>
         /// Инициализирует одноэлементный объект приложения.  Это первая выполняемая строка разрабатываемого
         /// кода; поэтому она является логическим эквивалентом main() или WinMain().
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            InitializeComponent();
+            Services = BuildServices();
+            Suspending += OnSuspending;
         }
 
         /// <summary>
@@ -67,7 +81,7 @@ namespace Intersvyaz
                     // Если стек навигации не восстанавливается для перехода к первой странице,
                     // настройка новой страницы путем передачи необходимой информации в качестве параметра
                     // параметр
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(LoginPage), e.Arguments);
                 }
                 // Обеспечение активности текущего окна
                 Window.Current.Activate();
@@ -96,6 +110,18 @@ namespace Intersvyaz
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Сохранить состояние приложения и остановить все фоновые операции
             deferral.Complete();
+        }
+
+        /// <summary>
+        /// Создать контейнер сервисов.
+        /// </summary>
+        /// <returns>Контейнер сервисов.</returns>
+        private static Container BuildServices()
+        {
+            var container = new Container();
+            container.Register<IntersvyazClient>(Lifestyle.Singleton);
+            container.Register<ISessionService, SessionService>(Lifestyle.Transient);
+            return container;
         }
     }
 }

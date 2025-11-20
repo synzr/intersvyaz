@@ -38,12 +38,6 @@ namespace Intersvyaz.Net
                 new ProductInfoHeaderValue("(+https://github.com/synzr/intersvyaz)"));
         }
 
-        public IntersvyazClient(string token) : base()
-        {
-            _httpClient.DefaultRequestHeaders.Authorization
-                = new AuthenticationHeaderValue("Bearer", token);
-        }
-
         /// <summary>
         /// Вход в систему.
         /// </summary>

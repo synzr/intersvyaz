@@ -12,19 +12,23 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Intersvyaz.Core.Services;
 
-// Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x419
-
-namespace Intersvyaz
+namespace Intersvyaz.Views
 {
     /// <summary>
-    /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
+    /// Страница входа.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class LoginPage : Page
     {
-        public MainPage()
+        private readonly ISessionService _sessionService;
+
+        public LoginPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
+
+            // NOTE: Получение сервисов
+            _sessionService = App.Current.Services.GetInstance<ISessionService>();
         }
     }
 }
