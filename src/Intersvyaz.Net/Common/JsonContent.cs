@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http;
 
-namespace Intersvyaz.Net
+namespace Intersvyaz.Net.Common
 {
     public class JsonContent : StringContent
     {

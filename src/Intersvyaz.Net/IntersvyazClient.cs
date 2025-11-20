@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Intersvyaz.Net.Models;
+using Intersvyaz.Net.Common;
 using Newtonsoft.Json;
 
 namespace Intersvyaz.Net
