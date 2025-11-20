@@ -18,6 +18,7 @@ using SimpleInjector;
 using Intersvyaz.Views;
 using Intersvyaz.Net;
 using Intersvyaz.Core.Services;
+using Intersvyaz.ViewModels;
 
 namespace Intersvyaz
 {
@@ -121,6 +122,7 @@ namespace Intersvyaz
             var container = new Container();
             container.Register<IntersvyazClient>(Lifestyle.Singleton);
             container.Register<ISessionService, SessionService>(Lifestyle.Transient);
+            container.Register<LoginViewModel>(Lifestyle.Transient);
             return container;
         }
     }

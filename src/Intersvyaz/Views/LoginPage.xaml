@@ -6,9 +6,37 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{x:Bind ViewModel}">
 
-    <Grid>
-        <TextBlock Text="LoginPage" />
+    <Grid VerticalAlignment="Center"
+          Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Source="ms-appx:///Assets/IntersvyazLogo.png"
+               VerticalAlignment="Center"
+               Margin="0,0,0,10"
+               Height="64"
+               Grid.Row="0" />
+
+        <TextBox PlaceholderText="логин"
+                 Text="{Binding Username,Mode=TwoWay}"
+                 Margin="0,0,0,10"
+                 Grid.Row="1" />
+
+        <PasswordBox PlaceholderText="пароль"
+                     Password="{Binding Password,Mode=TwoWay}"
+                     Grid.Row="2" />
+
+        <Button Content="войти"
+                Command="{Binding LoginCommand}"
+                HorizontalAlignment="Stretch"
+                Margin="0,10,0,0"
+                Grid.Row="3" />
     </Grid>
 </Page>

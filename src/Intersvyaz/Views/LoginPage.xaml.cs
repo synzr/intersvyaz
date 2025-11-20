@@ -1,34 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Intersvyaz.Core.Services;
+﻿using Windows.UI.Xaml.Controls;
+using Intersvyaz.ViewModels;
 
 namespace Intersvyaz.Views
 {
-    /// <summary>
-    /// Страница входа.
-    /// </summary>
     public sealed partial class LoginPage : Page
     {
-        private readonly ISessionService _sessionService;
+        /// <summary>
+        /// Модель представления страницы входа.
+        /// </summary>
+        public LoginViewModel ViewModel { get; }
 
         public LoginPage()
         {
             InitializeComponent();
-
-            // NOTE: Получение сервисов
-            _sessionService = App.Current.Services.GetInstance<ISessionService>();
+            ViewModel = App.Current.Services.GetInstance<LoginViewModel>();
         }
     }
 }
