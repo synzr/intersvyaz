@@ -72,7 +72,7 @@ namespace Intersvyaz.Net
 
                 _httpClient.DefaultRequestHeaders.Authorization =
                     new AuthenticationHeaderValue("Bearer", result.Token);
-                OnLogin.Invoke(this, result);
+                OnLogin?.Invoke(this, result);
 
                 return result;
             }
